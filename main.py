@@ -61,7 +61,7 @@ username_form = """
             </td>
             <td>
                 <input type="password" name="password" value="" value required>
-                <span style="color: red">%(password-error)s</span><br>
+                <span style="color: red">%(password-error)s</span>
             </td>
         </tr>
         <tr>
@@ -70,7 +70,7 @@ username_form = """
             </td>
             <td>
                 <input type="password" name="verify" value="" value required>
-                <span style="color: red">%(verify-error)s</span><br>
+                <span style="color: red">%(verify-error)s</span>
             </td>
         </tr>
         <tr>
@@ -79,7 +79,7 @@ username_form = """
             </td>
             <td>
                 <input type="text" name="email" value="%(emailvalue)s">
-                <span style="color: red">%(email-error)s</span><br>
+                <span style="color: red">%(email-error)s</span>
             </td>
         </tr>
     </table>
@@ -106,18 +106,18 @@ class MainHandler(webapp2.RequestHandler):
 
     def write_form(self, usererror, passworderror, verifyerror, emailerror, username, email):
         self.response.out.write(content % {'user-error': usererror,
-                                            'password-error': passworderror,
+                                           'password-error': passworderror,
                                            'verify-error': verifyerror,
                                            'email-error': emailerror,
                                            'uservalue': username,
-                                           'emailvalue' : email })
+                                           'emailvalue': email })
 
     def get(self):
         username = self.request.get('username')
         password = self.request.get('password')
         verify = self.request.get('verify')
         email = self.request.get('email')
-        usererror=''
+        usererror = ''
         passworderror = ''
         verifyerror = ''
         emailerror = ''
